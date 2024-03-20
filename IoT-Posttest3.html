@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitoring Suhu - Posttest 3 IoT</title>
+    <style>
+      .red-bg {
+        background-color: red;
+        padding: 2px;
+        border-radius: 5px;
+      }
+      
+      .green-bg {
+        background-color: green;
+        padding: 2px;
+        border-radius: 5px;
+        color: azure;
+      }
+      
+      .yellow-bg {
+        padding: 2px;
+        background-color: yellow;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function fetchData() {
+        fetch(
+          "https://api.thingspeak.com/channels/2471709/feeds.json?results=1&api_key=XIL7MAMJUHENGEEQ"
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const temperature = parseFloat(data.feeds[0].field1);
+            const Fixedtemperature = temperature.toFixed(2);
+            document.getElementById("Celcius").innerText = `${temperature}`;
+
+            const element = document.getElementById("Celcius");
+            const element1 = document.getElementById("Fahrenheit");
+            const element2 = document.getElementById("Kelvin");
+            const temperatureCelcius = parseFloat(element.innerText); // Mengambil nilai suhu dari elemen dan mengonversinya ke tipe numerik
+            
+            // Konversi suhu dari Celsius ke Fahrenheit
+            const temperatureFahrenheit = (temperatureCelcius * 9) / 5 + 32;
+            document.getElementById(
+              "Fahrenheit"
+            ).innerText = `${temperatureFahrenheit}`;
+            
+            // Konversi suhu dari Celsius ke Kelvin
+            const temperatureKelvin = temperatureCelcius + 273.15;
+            document.getElementById(
+              "Kelvin"
+            ).innerText = `${temperatureKelvin}`;
+
+            if (parseInt(Fixedtemperature) >= 36) {
+              element.classList.add("red-bg");
+              element.classList.remove("green-bg", "yellow-bg");
+              element1.classList.add("red-bg");
+              element1.classList.remove("green-bg", "yellow-bg");
+              element2.classList.add("red-bg");
+              element2.classList.remove("green-bg", "yellow-bg");
+            } else if (
+              parseInt(Fixedtemperature) < 36 &&
+              parseInt(Fixedtemperature) >= 30
+            ) {
+              element.classList.add("yellow-bg");
+              element.classList.remove("red-bg", "green-bg");
+              element1.classList.add("yellow-bg");
+              element1.classList.remove("red-bg", "green-bg");
+              element2.classList.add("yellow-bg");
+              element2.classList.remove("red-bg", "green-bg");
+            } else if (parseInt(Fixedtemperature) < 30) {
+              element.classList.add("green-bg");
+              element.classList.remove("red-bg", "yellow-bg");
+              element1.classList.add("green-bg");
+              element1.classList.remove("red-bg", "yellow-bg");
+              element2.classList.add("green-bg");
+              element2.classList.remove("red-bg", "yellow-bg");
+            }
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      }
+
+      // Panggil fungsi fetchData setiap 1/2 detik
+      setInterval(fetchData, 500);
+
+      // Panggil fetchData pertama kali saat halaman dimuat
+      fetchData();
+    </script>
+    <center>
+      <h1 style="padding-top: 10%">IoT Dashboard</h1>
+      <div style="display: flex; justify-content: center; padding-top: 5%">
+        Temperature(Celcius) :
+        <div id="Celcius"></div>
+        °C
+      </div>
+      <br>
+      <div style="display: flex; justify-content: center">
+        Temperature(Fahrenheit) :
+        <div id="Fahrenheit"></div>
+        °F
+      </div>
+      <br>
+      <div style="display: flex; justify-content: center">
+        Temperature(Kelvin) :
+        <div id="Kelvin"></div>
+        °K
+      </div>
+    </center>
+  </body>
+</html>
