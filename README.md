@@ -8,7 +8,7 @@
   <h2>Rangkaian LED, Piezzo Buzzer, dan DHT11 dengan website sebagai monitoring value</h2>
 
 <strong>Deskripsi:</strong>
-  Proyek ini bertujuan untuk membuat sebuah sistem IoT yang menggunakan mikrokontroler ESP8266 untuk mengontrol suhu dengan menggunakan sebuah LED dan Pizzeo Buzzer,yang mengambil data dari sensor DHT11, dan mengintegrasikan semua informasi ini ke dalam dashboard ThingSpeak yang akan ditampilkan di website menggunakan html,css dan javascript(untuk fetch data). Pada proyek ini, hasil deteksi dari sensor DHT11 akan dikonversikan menjadi Celsius, Fahrenheit, dan Kelvin, dan ditampilkan juga pada website dan serial monitor. Website ini digunakan untuk memonitoring sensor suhu dari DHT11 berdasarkan data dari API ThingSpeak.
+  Proyek ini bertujuan untuk membuat sebuah sistem IoT yang menggunakan mikrokontroler ESP8266 untuk mengontrol suhu dengan menggunakan sebuah LED dan Pizzeo Buzzer,yang mengambil data dari sensor DHT11, dan mengintegrasikan semua informasi ini ke dalam dashboard ThingSpeak yang akan ditampilkan di website menggunakan html, css dan javascript(untuk fetch data). Pada proyek ini, hasil deteksi dari sensor DHT11 akan dikonversikan menjadi Celsius, Fahrenheit, dan Kelvin, dan ditampilkan juga pada website dan serial monitor. Website ini digunakan untuk memonitoring sensor suhu dari DHT11 berdasarkan data dari API ThingSpeak.
 
 
 <strong>Cara Kerja Alat:</strong>
