@@ -3,7 +3,7 @@
 <strong>Kelompok 8 B1 2021:</strong>
 1. 2109106066 - Moh Ikhwan Wahyudi
 2. 2109106077 - Pranata Eka Pramudya
-3. 
+3. 2109106098 - Irfan Arman Hidayat
 
   <h2>Rangkaian LED, Piezzo Buzzer, dan Button(sebagai control value) dengan webserver sebagai monitoring value</h2>
 
@@ -13,7 +13,7 @@
 <strong>Pembagian Tugas</strong>
 1. Moh. Ikhwan Wahyudi   : Membuat struktur coding dan mengatur konfigurasi webserver.
 2. Pranata Eka Pramudya  : Menyusun rangkaian komponen LED, Button, Piezzo Buzzer dan NodeMCU
-3. 
+3. Irfan Arman Hidayat   : Membuat codingan di arduino ide untuk mengirim data dari esp8266 ke ThingSpeak
 
 <strong>Komponen yang digunakan:</strong>
 1. ESP8266
